@@ -4,7 +4,7 @@ import CardButton from '../CardButton/CardButton'
 function JournalAddButton() {
 
     return (
-        <CardButton>
+        <CardButton className="journal-add">
             Новое сообщение
         </CardButton>
     )
