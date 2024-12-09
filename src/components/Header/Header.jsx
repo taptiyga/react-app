@@ -3,7 +3,7 @@ import './Header.css'
 function Header() {
 
     return (
-        <>LOGO</>
+        <img className='logo' src="/vite.svg" alt="logo" />
     )
 }
 
