@@ -11,11 +11,13 @@ import { useState } from 'react'
 
 const INITIAL_DATA = [
   {
+    id: 1,
     title: 'Запись №1',
     text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae suscipit, laudantium commodi est id beatae quo error, esse, libero voluptate accusantium voluptas nulla non velit nobis mollitia fuga sint magnam.',
     date: new Date()
   },
   {
+    id: 2,
     title: 'Запись №2',
     text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae suscipit',
     date: new Date()
@@ -29,10 +31,18 @@ function App() {
     setItems(oldItems => [...oldItems, {
       text: item.text,
       title: item.title,
-      date: new Date(item.date)
+      date: new Date(item.date),
+      id: Math.max(...oldItems.map(i => i.id)) + 1
     }])
   }
 
+  const sortItems = (a, b) => {
+    if (a.date < b.date) {
+      return 1
+    } else {
+      return -1
+    }
+  }
 
   return (
     <div className='app'>
@@ -40,8 +50,8 @@ function App() {
         <Header />
         <JournalAddButton />
         <JournalList>
-          {items.map(el => (
-            <CardButton>
+          {items.sort(sortItems).map(el => (
+            <CardButton key={el.id}>
               <JournalItem
                 title={el.title}
                 text={el.text}
