@@ -5,7 +5,7 @@ function JournalAddButton() {
 
     return (
         <CardButton className="journal-add">
-            <img className='logo' src="vite.svg" alt="vite" />
+            <img className='logo' src="folder.svg" alt="vite" />
             Новое сообщение
         </CardButton>
     )
